@@ -1,28 +1,20 @@
 <script setup>
-import "./style.css";
+import { ChatInterface } from "@videodb/chat-vue";
+import "@videodb/chat-vue/dist/style.css";
+
+// pull in your env vars
+const socketUrl = import.meta.env.VITE_SOCKET_URL;
+const httpUrl   = import.meta.env.VITE_HTTP_URL;
 </script>
 
 <template>
-  <div class="w-full h-full template">
-    <router-view />
+  <div class="h-screen">
+    <ChatInterface
+      :chat-hook-config="{
+        socketUrl: socketUrl,
+        httpUrl: httpUrl,
+        debug: true
+      }"
+    />
   </div>
-</template>
-
-<style>
-:root {
-  --popper-theme-background-color: #333333;
-  --popper-theme-background-color-hover: #333333;
-  --popper-theme-text-color: #ffffff;
-  --popper-theme-border-width: 0px;
-  --popper-theme-border-style: solid;
-  --popper-theme-border-radius: 8px;
-  --popper-theme-padding: 4px 8px;
-  --popper-theme-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.08);
-}
-
-
-html {
-  overflow: hidden;
-}
-
-</style>
+</template> 
