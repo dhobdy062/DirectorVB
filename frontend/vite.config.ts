@@ -10,7 +10,7 @@ export default ({ mode }) => {
     server: {
       host: '0.0.0.0',
       port: parseInt(env.VITE_PORT),  // Access the port directly from the env object
-      open: env.VITE_OPEN_BROWSER === 'false' ? false : true,  // Use the environment variable to control browser opening, default to true
+      open: env.VITE_OPEN_BROWSER === 'true' ? false : true,  // Use the environment variable to control browser opening, default to true
     },
   });
 };
